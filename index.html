@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <meta name="description" content="Compre seu ar-condicionado novo com as melhores condições. Aproveite e já faça a cotação do serviço de instalação com os técnicos da Telrio Refrigeração.">
+  <title>Comprar Ar-Condicionado e Cotação de Instalação | Telrio Refrigeração</title>
+  <!-- Font Awesome 6 (ícones) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #ffffff;
+      color: #1e2a3a;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* Variáveis de cor - versão premium */
+    :root {
+      --azul-escuro: #0a2e3f;
+      --azul-profundo: #0f3b4f;
+      --azul-gradiente-start: #116b8f;
+      --azul-gradiente-end: #1f8db0;
+      --azul-claro-bg: #eef5fa;
+      --cinza-suave: #f9fafc;
+      --sombra: 0 20px 35px -12px rgba(0, 0, 0, 0.08);
+      --sombra-card: 0 12px 24px -12px rgba(0, 0, 0, 0.08);
+      --transicao: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    /* Animações fade-up */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.7s ease;
+    }
+
+    .fade-up.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* Header - AGORA ROLA JUNTO COM A PÁGINA (sem sticky) */
+    header {
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(0px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.02);
+      position: relative;
+      width: 100%;
+    }
+
+    .header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      flex-wrap: wrap;
+    }
+
+    .logo h1 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--azul-escuro), var(--azul-gradiente-end));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: -0.3px;
+    }
+
+    .logo p {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #4a6272;
+      margin-top: 4px;
+    }
+
+    .btn-whats-header {
+      background: linear-gradient(105deg, #25D366 0%, #20b859 100%);
+      color: #fff;
+      border: none;
+      padding: 9px 22px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: var(--transicao);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+    }
+
+    .btn-whats-header:hover {
+      transform: scale(1.02);
+      background: linear-gradient(105deg, #20b859, #1a9e4b);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(125deg, #eef5fc 0%, #ffffff 100%);
+      padding: 60px 0;
+    }
+
+    .hero-grid {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .hero-content {
+      flex: 1;
+    }
+
+    .hero-content h2 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--azul-escuro);
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #2c4b5e;
+      margin-bottom: 32px;
+    }
+
+    /* Botão hero com efeito pulsar (conversão) */
+    .btn-whats-hero {
+      background: linear-gradient(105deg, #25D366, #1da15a);
+      color: white;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px 34px;
+      border-radius: 50px;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: var(--transicao);
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
+      animation: subtle-pulse 2s infinite;
+    }
+
+    @keyframes subtle-pulse {
+      0% { box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35); transform: scale(1); }
+      50% { box-shadow: 0 12px 28px rgba(37, 211, 102, 0.55); transform: scale(1.02); }
+      100% { box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35); transform: scale(1); }
+    }
+
+    .btn-whats-hero:hover {
+      animation: none;
+      transform: translateY(-3px);
+      background: linear-gradient(105deg, #1da15a, #188a4d);
+    }
+
+    .hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-image img {
+      max-width: 100%;
+      border-radius: 32px;
+      box-shadow: var(--sombra);
+      transition: transform 0.4s ease;
+    }
+
+    .hero-image img:hover {
+      transform: scale(1.01);
+    }
+
+    /* Seção produtos */
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 56px 0 40px;
+      color: var(--azul-escuro);
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      width: 70px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--azul-gradiente-start), var(--azul-gradiente-end));
+      display: block;
+      margin: 12px auto 0;
+      border-radius: 4px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 32px;
+      margin-bottom: 30px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--sombra-card);
+      transition: var(--transicao);
+      text-align: center;
+      border: 1px solid #f0f4f9;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 40px -20px rgba(0, 0, 0, 0.2);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.45s ease;
+      display: block;
+    }
+
+    .product-card:hover img {
+      transform: scale(1.03);
+    }
+
+    .product-info {
+      padding: 20px 18px 24px;
+    }
+
+    .product-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+      color: #1f3e4c;
+    }
+
+    .btn-product {
+      background: transparent;
+      border: 2px solid var(--azul-gradiente-end);
+      color: var(--azul-gradiente-end);
+      font-weight: 600;
+      padding: 12px 0;
+      width: 100%;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: var(--transicao);
+      font-size: 1rem;
+    }
+
+    .btn-product:hover {
+      background: var(--azul-gradiente-end);
+      color: white;
+      border-color: var(--azul-gradiente-end);
+    }
+
+    /* Aviso legal nos botões de compra */
+    .legal-notice {
+      font-size: 0.7rem;
+      color: #6c7e8a;
+      margin-top: 12px;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    /* Serviços com ícones */
+    .services-section {
+      background: var(--cinza-suave);
+      border-radius: 48px;
+      margin: 40px 0 50px;
+      padding: 20px 0 40px;
+    }
+
+    .services-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 36px;
+      margin-top: 20px;
+    }
+
+    .service-item {
+      background: white;
+      padding: 28px 28px;
+      border-radius: 42px;
+      text-align: center;
+      flex: 1 1 180px;
+      transition: var(--transicao);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.02);
+      border: 1px solid #eef2f7;
+    }
+
+    .service-item i {
+      font-size: 2.5rem;
+      background: linear-gradient(135deg, var(--azul-escuro), var(--azul-gradiente-end));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 14px;
+    }
+
+    .service-item h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1f4b5e;
+    }
+
+    .service-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 28px -12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Galeria estilo vitrine */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 30px 0 50px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 28px;
+      height: 240px;
+      box-shadow: 0 12px 18px rgba(0, 0, 0, 0.06);
+      transition: var(--transicao);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      display: block;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.07);
+    }
+
+    /* Botão flutuante WhatsApp */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: linear-gradient(135deg, #25D366, #1da15a);
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 8px 22px rgba(37, 211, 102, 0.4);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      z-index: 99;
+      text-decoration: none;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      background: linear-gradient(135deg, #1da15a, #188a4d);
+    }
+
+    /* Rodapé */
+    footer {
+      background: #0a2e3f;
+      color: #cbdbe2;
+      padding: 44px 0 28px;
+      margin-top: 64px;
+      text-align: center;
+    }
+
+    .footer-content p {
+      margin: 8px 0;
+    }
+
+    .footer-whats {
+      color: #25D366;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .footer-whats:hover {
+      text-decoration: underline;
+    }
+
+    .policy-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin: 20px 0 16px;
+      flex-wrap: wrap;
+    }
+
+    .policy-btn {
+      background: none;
+      border: none;
+      color: #cbdbe2;
+      font-size: 0.85rem;
+      cursor: pointer;
+      text-decoration: underline;
+      transition: color 0.2s;
+    }
+
+    .policy-btn:hover {
+      color: white;
+    }
+
+    /* MODAL ESTILO PREMIUM */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(10, 46, 63, 0.9);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      max-width: 700px;
+      width: 90%;
+      max-height: 85vh;
+      border-radius: 32px;
+      padding: 32px;
+      overflow-y: auto;
+      box-shadow: 0 30px 50px rgba(0, 0, 0, 0.3);
+      animation: modalFadeIn 0.3s ease;
+    }
+
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .modal-content h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: var(--azul-escuro);
+    }
+
+    .modal-content h3 {
+      font-size: 1.2rem;
+      margin: 20px 0 10px;
+      color: var(--azul-gradiente-start);
+    }
+
+    .modal-content p, .modal-content li {
+      color: #334155;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    .close-modal {
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: #64748b;
+      transition: color 0.2s;
+    }
+
+    .close-modal:hover {
+      color: #0f172a;
+    }
+
+    /* Responsividade */
+    @media (max-width: 900px) {
+      .hero-grid {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      .hero-content h2 {
+        font-size: 2rem;
+      }
+      .hero-content p {
+        font-size: 1rem;
+      }
+      .btn-whats-hero {
+        margin-bottom: 12px;
+      }
+      .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 24px;
+      }
+      .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+      .header-flex {
+        flex-direction: column;
+        gap: 12px;
+      }
+      .btn-whats-header {
+        font-size: 0.85rem;
+        padding: 8px 18px;
+      }
+      .section-title {
+        font-size: 1.7rem;
+      }
+      .whatsapp-float {
+        width: 54px;
+        height: 54px;
+        font-size: 1.8rem;
+        bottom: 22px;
+        right: 22px;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .container {
+        padding: 0 20px;
+      }
+      .product-card img {
+        height: 190px;
+      }
+      .gallery-item {
+        height: 180px;
+      }
+      .btn-product {
+        padding: 10px 0;
+      }
+    }
+
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container header-flex">
+    <div class="logo">
+      <h1>Telrio Refrigeração</h1>
+      <p>Conforto e eficiência para seu ambiente</p>
+    </div>
+    <button class="btn-whats-header" id="btnWhatsHeader">
+      <i class="fab fa-whatsapp"></i> Fale conosco
+    </button>
+  </div>
+</header>
+
+<main>
+  <!-- Hero (Banner principal) -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <h2>Ar-condicionado com qualidade e garantia</h2>
+        <p>Venda, instalação e manutenção com equipe especializada. Soluções completas para seu conforto térmico.</p>
+        <button class="btn-whats-hero" id="btnWhatsHero">
+          <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+        </button>
+      </div>
+      <div class="hero-image">
+        <img src="hero.jpg" alt="Imagem principal ar-condicionado">
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Produtos -->
+  <div class="container fade-up">
+    <h2 class="section-title">Nossos equipamentos</h2>
+    <div class="products-grid" id="productsContainer"></div>
+  </div>
+
+  <!-- Seção de Serviços -->
+  <div class="container fade-up services-section">
+    <h2 class="section-title">Soluções completas</h2>
+    <div class="services-grid">
+      <div class="service-item"><i class="fas fa-tools"></i><h4>Instalação</h4><p>Profissional e ágil</p></div>
+      <div class="service-item"><i class="fas fa-spray-can-sparkles"></i><h4>Limpeza</h4><p>Higienização profunda</p></div>
+      <div class="service-item"><i class="fas fa-screwdriver-wrench"></i><h4>Manutenção</h4><p>Preventiva e corretiva</p></div>
+      <div class="service-item"><i class="fas fa-cart-shopping"></i><h4>Venda</h4><p>Equipamentos novos</p></div>
+    </div>
+  </div>
+
+  <!-- Galeria estilo vitrine -->
+  <div class="container fade-up">
+    <h2 class="section-title">Nossos trabalhos</h2>
+    <div class="gallery" id="galleryContainer"></div>
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-content">
+    <p><strong>Telrio Refrigeração</strong> – Qualidade e confiança</p>
+    <p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/5521965392330" target="_blank" class="footer-whats">(21) 96539-2330</a></p>
+    <p>Telrio Refrigeração - CNPJ: 44.560.865/0001-88</p>
+    <div class="policy-buttons">
+      <button class="policy-btn" id="openTermsBtn">📄 Termos de Uso</button>
+      <button class="policy-btn" id="openPrivacyBtn">🔒 Política de Privacidade</button>
+    </div>
+    <p style="font-size: 0.8rem; margin-top: 18px;">© 2025 Telrio Refrigeração – Conforto que transforma</p>
+  </div>
+</footer>
+
+<!-- Botão WhatsApp flutuante fixo -->
+<a href="https://wa.me/5521965392330?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20ar-condicionado" class="whatsapp-float" target="_blank" id="floatWhatsBtn">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- MODAL TERMOS DE USO -->
+<div id="termsModal" class="modal">
+  <div class="modal-content">
+    <button class="close-modal">&times;</button>
+    <h2>Termos de Uso</h2>
+    <p><strong>Última atualização:</strong> Maio de 2025</p>
+    <h3>1. Natureza da Plataforma</h3>
+    <p>A Telrio Refrigeração atua exclusivamente como intermediadora digital, conectando clientes a fornecedores/parceiros independentes.</p>
+    <h3>2. Relação Comercial</h3>
+    <p>A responsabilidade pela venda do produto é integralmente do fornecedor parceiro. A Telrio NÃO realiza fabricação, estoque ou envio direto.</p>
+    <h3>3. Independência de Responsabilidades</h3>
+    <p>A Telrio não se responsabiliza por entrega, prazos logísticos, disponibilidade, avarias ou defeitos de fabricação. Essas obrigações são exclusivas do fornecedor e/ou fabricante.</p>
+    <h3>4. Garantia</h3>
+    <p>A garantia é fornecida exclusivamente pelo fabricante ou fornecedor. A Telrio não fornece garantia sobre produtos.</p>
+    <h3>5. Instalação (Serviço Independente)</h3>
+    <p>A instalação é opcional, contratada separadamente e possui orçamento próprio. A responsabilidade da Telrio limita-se apenas ao serviço executado diretamente quando contratado.</p>
+    <h3>6. Limitação Geral de Responsabilidade</h3>
+    <p>A Telrio não será responsável por danos indiretos, prejuízos financeiros, lucros cessantes, mau uso do produto ou instalação feita por terceiros.</p>
+    <h3>7. Intermediação Tecnológica</h3>
+    <p>A plataforma atua apenas como meio digital de conexão entre as partes.</p>
+    <h3>8. Aceite Eletrônico</h3>
+    <p>Ao utilizar o site ou iniciar contato via WhatsApp, o cliente declara ciência e concordância com os termos.</p>
+    <h3>9. Uso Indevido / Má-Fé</h3>
+    <p>É proibido fornecer dados falsos, tentar fraude ou uso indevido da plataforma, podendo resultar em bloqueio imediato.</p>
+    <h3>10. Alterações dos Termos</h3>
+    <p>Os termos podem ser alterados a qualquer momento sem aviso prévio.</p>
+  </div>
+</div>
+
+<!-- MODAL POLÍTICA DE PRIVACIDADE -->
+<div id="privacyModal" class="modal">
+  <div class="modal-content">
+    <button class="close-modal">&times;</button>
+    <h2>Política de Privacidade</h2>
+    <p><strong>Última atualização:</strong> Maio de 2025</p>
+    <h3>1. Coleta de Dados</h3>
+    <p>Coletamos os seguintes dados: nome, telefone e informações de contato fornecidas voluntariamente.</p>
+    <h3>2. Finalidade</h3>
+    <p>Os dados são utilizados para atendimento, orçamento e comunicação comercial relacionada aos produtos e serviços da Telrio Refrigeração.</p>
+    <h3>3. Compartilhamento</h3>
+    <p>Seus dados podem ser compartilhados com parceiros comerciais e fornecedores exclusivamente para execução da venda ou instalação.</p>
+    <h3>4. Segurança</h3>
+    <p>Adotamos medidas de proteção técnicas, porém nenhum sistema é 100% seguro contra ataques externos.</p>
+    <h3>5. Consentimento</h3>
+    <p>Ao usar nosso site ou iniciar contato, você concorda com esta política.</p>
+    <h3>6. Direitos do Usuário</h3>
+    <p>Você pode solicitar exclusão, alteração ou acesso aos seus dados através do nosso WhatsApp.</p>
+    <h3>7. Limitação Digital</h3>
+    <p>A Telrio não se responsabiliza por falhas de terceiros (ex: WhatsApp, operadoras de internet, provedores).</p>
+  </div>
+</div>
+
+<script>
+  // Produtos (MESMA ESTRUTURA ORIGINAL)
+  const produtos = [
+    { id: 1, nome: "Produto 1", imgFile: "produto1.jpg" },
+    { id: 2, nome: "Produto 2", imgFile: "produto2.jpg" },
+    { id: 3, nome: "Produto 3", imgFile: "produto3.jpg" },
+    { id: 4, nome: "Produto 4", imgFile: "produto4.jpg" },
+    { id: 5, nome: "Produto 5", imgFile: "produto5.jpg" },
+    { id: 6, nome: "Produto 6", imgFile: "produto6.jpg" }
+  ];
+
+  function renderProducts() {
+    const container = document.getElementById('productsContainer');
+    if (!container) return;
+    container.innerHTML = '';
+    produtos.forEach(prod => {
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.innerHTML = `
+        <img src="${prod.imgFile}" alt="${prod.nome}" class="product-img">
+        <div class="product-info">
+          <div class="product-title">${prod.nome}</div>
+          <button class="btn-product" data-produto="${prod.nome}">Quero este</button>
+          <div class="legal-notice">Você será atendido por um parceiro responsável pela venda do produto.</div>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+
+    document.querySelectorAll('.btn-product').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const nomeProduto = btn.getAttribute('data-produto');
+        const msg = `Ao continuar, você declara estar ciente de que a compra será realizada com fornecedor parceiro e concorda com nossos termos de uso.\n\nOlá! Quero comprar o ar-condicionado modelo "${nomeProduto}". Gostaria de ver os valores e também aproveitar para cotar a instalação com vocês.`;
+        window.open(`https://wa.me/5521965392330?text=${encodeURIComponent(msg)}`, '_blank');
+      });
+    });
+  }
+
+  // Galeria (MESMA ESTRUTURA ORIGINAL)
+  const galleryImages = [
+    "galeria1.jpg",
+    "galeria2.jpg",
+    "galeria3.jpg",
+    "galeria4.jpg",
+    "galeria5.jpg",
+    "galeria6.jpg"
+  ];
+
+  function renderGallery() {
+    const galleryContainer = document.getElementById('galleryContainer');
+    if (!galleryContainer) return;
+    galleryContainer.innerHTML = '';
+    galleryImages.forEach(imgFile => {
+      const div = document.createElement('div');
+      div.className = 'gallery-item';
+      div.innerHTML = `<img src="${imgFile}" alt="Trabalho de instalação">`;
+      galleryContainer.appendChild(div);
+    });
+  }
+
+  function abrirWhatsApp(mensagemPersonalizada) {
+    const texto = mensagemPersonalizada || "Olá! Gostaria de receber um orçamento para serviços de ar-condicionado.";
+    window.open(`https://wa.me/5521965392330?text=${encodeURIComponent(texto)}`, '_blank');
+  }
+
+  document.getElementById('btnWhatsHeader')?.addEventListener('click', () => {
+    abrirWhatsApp("Olá! Visitei o site da Telrio Refrigeração e gostaria de mais informações.");
+  });
+  document.getElementById('btnWhatsHero')?.addEventListener('click', () => {
+    abrirWhatsApp("Olá! Gostaria de saber sobre os produtos e serviços de ar-condicionado com qualidade e garantia.");
+  });
+
+  // MODAIS - Políticas integradas
+  const termsModal = document.getElementById('termsModal');
+  const privacyModal = document.getElementById('privacyModal');
+  const openTerms = document.getElementById('openTermsBtn');
+  const openPrivacy = document.getElementById('openPrivacyBtn');
+  const closeButtons = document.querySelectorAll('.close-modal');
+
+  function openModal(modal) {
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(modal) {
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  openTerms?.addEventListener('click', () => openModal(termsModal));
+  openPrivacy?.addEventListener('click', () => openModal(privacyModal));
+  closeButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      closeModal(termsModal);
+      closeModal(privacyModal);
+    });
+  });
+  window.addEventListener('click', (e) => {
+    if (e.target === termsModal) closeModal(termsModal);
+    if (e.target === privacyModal) closeModal(privacyModal);
+  });
+
+  // Animações scroll
+  const fadeElements = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: "0px 0px -20px 0px" });
+
+  fadeElements.forEach(el => observer.observe(el));
+  setTimeout(() => {
+    fadeElements.forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight - 80) {
+        el.classList.add('revealed');
+      }
+    });
+  }, 150);
+
+  renderProducts();
+  renderGallery();
+</script>
+</body>
+</html>
